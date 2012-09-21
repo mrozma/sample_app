@@ -10,6 +10,7 @@ gem 'sqlite3', '1.3.6', :group => :development
 group :development do
   gem 'rspec-rails', '>=2.2.0'
   gem 'webrat', '0.7.1'
+  gem 'pg'
 end
 
 group :test do
