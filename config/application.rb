@@ -6,6 +6,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
+require "rails/all"
 # require "rails/test_unit/railtie"
 
 if defined?(Bundler)
@@ -64,5 +65,13 @@ module SampleApp
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+	
+	#Sprok Hack
+	if Rails.env.test?
+	  initializer :after => :initialize_dependency_mechanism do
+	    #workaround initilizer in railties/lib/rails/application/boostrap.rb
+		ActiveSupport::Dependencies.mechanism = :load
+	  end
+	end
   end
 end
