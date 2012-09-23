@@ -19,6 +19,10 @@ group :test do
   gem 'spork'
 end
 
+group :production do
+  gem 'pg'
+end
+
 #this is a must for Heroku deployment, Chris 2012/9/21
 group :production do
   #gem 'therubyracer-heroku', '0.8.1.pre3' # you will need this too
